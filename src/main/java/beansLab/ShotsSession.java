@@ -8,7 +8,6 @@ import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 
 @ManagedBean
@@ -65,9 +64,20 @@ public class ShotsSession implements Serializable {
         return strBuild.toString();
     }
 
-    public String writeShots(String id) {
-        Shot[] shots = getShots(id);
-        return null;
+    public String writeShots(String id, double r) {
+        StringBuilder strBuild = new StringBuilder();
+        ArrayList<Shot> shots = new ArrayList<>();
+        Collections.addAll(shots, getShots(id));
+        shots.stream().map(shot -> {
+            double x = shot.getX();
+            double y = shot.getY();
+
+            return (
+                    "<circle cx=\"" + (150 + 120 * (x / r)) + "\" cy=\"" + (150 - 120 * (y / r)) + "\" r=\"5\" fill=\"rgb(255,0,255)\" stroke-width=\"1\"\n stroke=\"rgb(0,0,0)\"/>"
+            );
+        }).forEachOrdered(str -> strBuild.append(str));
+
+        return strBuild.toString();
     }
 
 }
