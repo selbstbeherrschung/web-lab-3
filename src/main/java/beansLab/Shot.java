@@ -3,10 +3,10 @@ package beansLab;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.ManagedBean;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 
-@ManagedBean
-@RequestScoped
+
 public class Shot implements Serializable {
 
     private double x;
@@ -15,7 +15,7 @@ public class Shot implements Serializable {
 
     private boolean GR;
 
-    private ZonedDateTime start;
+    private LocalDateTime start;
     private long scriptTime;
 
     public void setX(double x) {
@@ -46,7 +46,7 @@ public class Shot implements Serializable {
         return GR;
     }
 
-    public ZonedDateTime getStart() {
+    public LocalDateTime getStart() {
         return start;
     }
 
@@ -54,9 +54,18 @@ public class Shot implements Serializable {
         return scriptTime;
     }
 
+    public Shot(){}
+    public Shot(double xIn, double yIn, double rIn, boolean grIn, LocalDateTime startIn, long scriptTimeIn){
+        x = xIn;
+        y = yIn;
+        r = rIn;
+        GR = grIn;
+        start = startIn;
+        scriptTime = scriptTimeIn;
+    }
 
     public void calculateShot() {
-        start = ZonedDateTime.now();
+        start = LocalDateTime.now();
         scriptTime = System.nanoTime();
         GR = check(x, y, r);
         scriptTime = System.nanoTime() - scriptTime;

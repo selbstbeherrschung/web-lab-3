@@ -11,10 +11,10 @@
 <h:body>
     Hello xhtml!!!
     <h:form>
-        <h:inputText value="#{shot.x}"/>
-        <h:inputText value="#{shot.y}"/>
-        <h:inputText value="#{shot.r}"/>
-        <h:commandButton value="Send" action="#{shotsSession.addShot(shot, session.getId())}"/>
+        <h:inputText value="#{shotsSession.x}"/>
+        <h:inputText value="#{shotsSession.y}"/>
+        <h:inputText value="#{shotsSession.r}"/>
+        <h:commandButton value="Send" action="#{shotsSession.addShot(session.getId())}"/>
     </h:form>
 </h:body>
 </html>
