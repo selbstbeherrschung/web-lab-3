@@ -32,4 +32,9 @@
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
 
+    <error-page>
+        <error-code>404</error-code>
+        <location>/faces/error_page.xhtml</location>
+    </error-page>
+
 </web-app>
