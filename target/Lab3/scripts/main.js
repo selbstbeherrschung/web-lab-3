@@ -11,3 +11,15 @@
     }
     updateClock();
     document.getElementById("infoR")
+
+    function updateForm(){
+        let data = document.getElementById("picture").innerText;
+        document.getElementById("picture").innerHTML=  data;
+    }
+    updateForm();
+
+    function updateTable(){
+        let data = document.getElementById("table").innerText;
+        document.getElementById("table").innerHTML =  data;
+    }
+    updateTable();

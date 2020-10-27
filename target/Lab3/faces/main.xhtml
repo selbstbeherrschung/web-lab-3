@@ -5,7 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:p="http://java.sun.com/jsf/html">
+      xmlns:p="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
 <head>
     <title>Title</title>
 </head>
@@ -28,14 +29,50 @@
         <div id="content">
             <div id="leftSide">
                 <h:form>
-                    <h:inputText value="#{shotsSession.x}"/>
-                    <h:inputText value="#{shotsSession.y}"/>
-                    <h:inputText value="#{shotsSession.r}"/>
-                    <h:commandButton value="Send" action="#{shotsSession.addShot(session.getId())}"/>
+                    <div id="picture">
+                        #{storage.printShots(session.getId(), shotsSession.r)}
+                    </div>
+
+                    <div id="xText">
+                        X[-5;5]:
+                        <h:inputText id="text_input_X" value="#{shotsSession.x}">
+                            <f:convertNumber/>
+                            <f:validateDoubleRange minimum="-5.0" maximum="5.0"/>
+                        </h:inputText>
+                    </div>
+
+                    <div id="yButtons">
+                        Y:
+                        <h:commandButton id="yCom-3" value="-3" action="#{shotsSession.setY(-3)}"/>
+                        <h:commandButton id="yCom-2" value="-2" action="#{shotsSession.setY(-2)}"/>
+                        <h:commandButton id="yCom-1" value="-1" action="#{shotsSession.setY(-1)}"/>
+                        <h:commandButton id="yCom0" value="0" action="#{shotsSession.setY(0)}"/>
+                        <h:commandButton id="yCom1" value="1" action="#{shotsSession.setY(1)}"/>
+                        <h:commandButton id="yCom2" value="2" action="#{shotsSession.setY(2)}"/>
+                        <h:commandButton id="yCom3" value="3" action="#{shotsSession.setY(3)}"/>
+                        <h:commandButton id="yCom4" value="4" action="#{shotsSession.setY(4)}"/>
+                        <h:commandButton id="yCom5" value="5" action="#{shotsSession.setY(5)}"/>
+                    </div>
+
+                    <div id="rButtons">
+                        R:
+                        <h:commandButton id="rCom1" value="1" action="#{shotsSession.setR(1)}"/>
+                        <h:commandButton id="rCom15" value="1.5" action="#{shotsSession.setR(1.5)}"/>
+                        <h:commandButton id="rCom2" value="2" action="#{shotsSession.setR(2)}"/>
+                        <h:commandButton id="rCom25" value="2.5" action="#{shotsSession.setR(2.5)}"/>
+                        <h:commandButton id="rCom3" value="3" action="#{shotsSession.setR(3)}"/>
+                    </div>
+
+                    <div id="sender">
+                        <h:commandButton value="Send" action="#{shotsSession.addShot(session.getId())}"/>
+                    </div>
+
                 </h:form>
             </div>
             <div id="rightSide">
-                права
+                <div id="table">
+                    #{storage.writeShots(session.getId())}
+                </div>
             </div>
         </div>
     </h:body>

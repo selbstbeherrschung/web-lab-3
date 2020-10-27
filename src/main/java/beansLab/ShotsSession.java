@@ -12,7 +12,7 @@ public class ShotsSession implements Serializable {
 
     private double x;
     private double y;
-    private double r;
+    private double r = 1.0d;
 
     public double getX() {
         return x;
