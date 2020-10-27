@@ -56,11 +56,11 @@
 
                     <div id="rButtons">
                         R:
-                        <h:commandButton id="rCom1" value="1" action="#{shotsSession.setR(1)}"/>
-                        <h:commandButton id="rCom15" value="1.5" action="#{shotsSession.setR(1.5)}"/>
-                        <h:commandButton id="rCom2" value="2" action="#{shotsSession.setR(2)}"/>
-                        <h:commandButton id="rCom25" value="2.5" action="#{shotsSession.setR(2.5)}"/>
-                        <h:commandButton id="rCom3" value="3" action="#{shotsSession.setR(3)}"/>
+                        <h:commandButton id="rCom1" onclick="setR(1)" value="1" action="#{shotsSession.setR(1)}"/>
+                        <h:commandButton id="rCom15" onclick="setR(1.5)" value="1.5" action="#{shotsSession.setR(1.5)}"/>
+                        <h:commandButton id="rCom2" onclick="setR(2)"  value="2" action="#{shotsSession.setR(2)}"/>
+                        <h:commandButton id="rCom25" onclick="setR(2.5)"  value="2.5" action="#{shotsSession.setR(2.5)}"/>
+                        <h:commandButton id="rCom3" onclick="setR(3)"  value="3" action="#{shotsSession.setR(3)}"/>
                     </div>
 
                     <div id="sender">
@@ -75,6 +75,14 @@
                 </div>
             </div>
         </div>
+        <h:form id="hiddenForm" style="display: none;">
+            <h:inputHidden id="dataX" value="#{shotsSession.x}" />
+            <h:inputHidden id="dataY" value="#{shotsSession.y}" />
+            <h:inputHidden id="dataR" value="#{shotsSession.r}" />
+            <h:commandButton id="invisibleClickTarget">
+                <f:ajax execute="@form" listener="#{shotsSession.addShot(session.getId())}" render=""/>
+            </h:commandButton>
+        </h:form>
     </h:body>
 </f:view>
 <script type="text/javascript" src="../scripts/main.js"/>
