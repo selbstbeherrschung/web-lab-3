@@ -64,7 +64,7 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Test/slf4j-api-1.7.9.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp" />
     <property name="project.structure.last.edited" value="Facets" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.21525097" />
@@ -72,13 +72,14 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\MyProjects\Java\Web\web-lab-3\src\main" />
+      <recent name="C:\MyProjects\Java\Web\web-lab-3\src\main\webapp\resourcesPicture" />
+      <recent name="C:\MyProjects\Java\Web\web-lab-3\src\main\webapp\faces" />
+      <recent name="C:\MyProjects\Java\Web\web-lab-3\src\main\webapp\scripts" />
+      <recent name="C:\MyProjects\Java\Web\web-lab-3\src\main\webapp\styles" />
       <recent name="C:\MyProjects\Java\Web\web-lab-3" />
-      <recent name="C:\MyProjects\Java\Web\Lab3\src\main" />
-      <recent name="C:\MyProjects\Java\Web\Lab3\src" />
-      <recent name="C:\MyProjects\Java\Web\Lab3" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\MyProjects\Java\Web\web-lab-3\src\main\webapp" />
       <recent name="C:\MyProjects\Java\Web\Lab3\src\main\java\beansLab" />
       <recent name="C:\MyProjects\Java\Web\Lab3\src\main\resources\Web" />
     </key>
@@ -426,31 +427,35 @@
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
     <state x="2080" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1603654834346" />
+    <state x="2056" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1603758934678">
+      <screen x="1366" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2056" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1603758934678" />
     <state x="472" y="147" key="FileChooserDialogImpl" timestamp="1603721051467">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="472" y="147" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1603721051467" />
     <state x="2029" y="210" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1603659018669" />
-    <state width="1877" height="99" key="GridCell.Tab.0.bottom" timestamp="1603756268935">
+    <state width="1877" height="306" key="GridCell.Tab.0.bottom" timestamp="1603760001677">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
     <state width="1323" height="334" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1603724730447" />
-    <state width="1877" height="99" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1603756268935" />
-    <state width="1877" height="99" key="GridCell.Tab.0.center" timestamp="1603756268935">
+    <state width="1877" height="306" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1603760001677" />
+    <state width="1877" height="306" key="GridCell.Tab.0.center" timestamp="1603760001677">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
     <state width="1323" height="334" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1603724730447" />
-    <state width="1877" height="99" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1603756268935" />
-    <state width="1877" height="99" key="GridCell.Tab.0.left" timestamp="1603756268935">
+    <state width="1877" height="306" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1603760001677" />
+    <state width="1877" height="306" key="GridCell.Tab.0.left" timestamp="1603760001676">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
     <state width="1323" height="334" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1603724730447" />
-    <state width="1877" height="99" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1603756268935" />
-    <state width="1877" height="99" key="GridCell.Tab.0.right" timestamp="1603756268935">
+    <state width="1877" height="306" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1603760001676" />
+    <state width="1877" height="306" key="GridCell.Tab.0.right" timestamp="1603760001677">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
     <state width="1323" height="334" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1040@0.0.1366.728" timestamp="1603724730447" />
-    <state width="1877" height="99" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1603756268935" />
+    <state width="1877" height="306" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1603760001677" />
     <state width="1877" height="311" key="GridCell.Tab.1.bottom" timestamp="1603749547656">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>

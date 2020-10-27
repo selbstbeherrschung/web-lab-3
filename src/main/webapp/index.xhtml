@@ -3,18 +3,25 @@
         PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://xmlns.jcp.org/jsf/core"
       xml:lang="en" lang="en">
-<h:head>
-    <title>Lab3</title>
-</h:head>
-<h:body>
-    Hello xhtml!!!
-    <h:form>
-        <h:inputText value="#{shotsSession.x}"/>
-        <h:inputText value="#{shotsSession.y}"/>
-        <h:inputText value="#{shotsSession.r}"/>
-        <h:commandButton value="Send" action="#{shotsSession.addShot(session.getId())}"/>
-    </h:form>
-</h:body>
+<f:view>
+    <h:head>
+        <title>Lab 3</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="styles/main.css"/>
+    </h:head>
+    <h:body>
+        <div id="header">
+            <img src="resourcesPicture/logo.jpg" width="10px" height="10px" alt="logo"/><br/>
+            This labwork created by: Negrash Andrey and Rogachev Kirill. <br/>Variant 2698
+        </div>
+        <div id="content">
+            <div id="time"/>
+            <button onclick="location.href = 'faces/main.xhtml'" id="toMain">Go into!</button>
+        </div>
+    </h:body>
+</f:view>
+<script type="text/javascript" src="scripts/main.js"/>
 </html>
