@@ -4,14 +4,61 @@ import resources.BasesShotCreater;
 import resources.DataBaseManagerShots;
 
 
-import javax.faces.bean.ApplicationScoped;
-import javax.faces.bean.ManagedBean;
+import javax.annotation.ManagedBean;
+import javax.enterprise.context.ApplicationScoped;
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.LinkedList;
 
-//@ManagedBean
-//@ApplicationScoped
+@ManagedBean
+@ApplicationScoped
 public class ShotsStorage {
+
+
+    private double x;
+    private double y;
+    private double r;
+
+    private boolean GR;
+
+    private LocalDateTime start;
+    private long scriptTime;
+
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public void setY(double y) {
+        this.y = y;
+    }
+
+    public void setR(double r) {
+        this.r = r;
+    }
+
+    public double getX() {
+        return x;
+    }
+
+    public double getY() {
+        return y;
+    }
+
+    public double getR() {
+        return r;
+    }
+
+    public boolean isGR() {
+        return GR;
+    }
+
+    public LocalDateTime getStart() {
+        return start;
+    }
+
+    public long getScriptTime() {
+        return scriptTime;
+    }
 
     public static DataBaseManagerShots dataBase = BasesShotCreater.getDataBase();
     private static HashMap<String, LinkedList<Shot>> shotMapList = new HashMap<>();
@@ -27,7 +74,7 @@ public class ShotsStorage {
         return dataBase.insertShot(shot, id);
     }
 
-    private static Shot[] getShots(String id) {
+    public static Shot[] getShots(String id) {
         return dataBase.getShots(id);
     }
 

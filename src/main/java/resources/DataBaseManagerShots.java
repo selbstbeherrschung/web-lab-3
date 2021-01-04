@@ -26,7 +26,7 @@ public class DataBaseManagerShots {
     }
 
     private boolean insertSession(String id){
-        String sql = "INSERT INTO SESSIONS (session_id, session_str_id) " +
+        String sql = "INSERT INTO SESSIONS3 (session_id, session_str_id) " +
                 "VALUES (DEFAULT, (?))";
 
         try (PreparedStatement st = connection.prepareStatement(sql)){
@@ -46,7 +46,7 @@ public class DataBaseManagerShots {
     }
 
     private int getSessionId(String id){
-        String sql = "SELECT * FROM SESSIONS WHERE session_str_id=(?)";
+        String sql = "SELECT * FROM SESSIONS3 WHERE session_str_id=(?)";
 
         int result = 0;
 
@@ -73,7 +73,7 @@ public class DataBaseManagerShots {
 
     public boolean insertShot(Shot shot, String id){
 
-        String sql = "SELECT COUNT(*) as c FROM SESSIONS WHERE session_str_id = (?)";
+        String sql = "SELECT COUNT(*) as c FROM SESSIONS3 WHERE session_str_id = (?)";
         int sessionId = 0;
         try {
             PreparedStatement st = connection.prepareStatement(sql);
@@ -97,7 +97,7 @@ public class DataBaseManagerShots {
             return false;
         }
 
-        sql = "INSERT INTO SHOTS (shot_id, x, y, r, rg, start_time, script_time, session_id) " +
+        sql = "INSERT INTO SHOTS3 (shot_id, x, y, r, rg, start_time, script_time, session_id) " +
                 "VALUES (DEFAULT, (?), (?), (?), (?), (?), (?), (?))";
 
 
@@ -137,7 +137,7 @@ public class DataBaseManagerShots {
 
         int resultId = getSessionId(id);
 
-        String sql = "SELECT * FROM SHOTS WHERE session_id=(?)";
+        String sql = "SELECT * FROM SHOTS3 WHERE session_id=(?)";
 
         try (PreparedStatement st = connection.prepareStatement(sql)){
             st.setInt(1, resultId);

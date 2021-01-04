@@ -6,11 +6,9 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
-<head>
-    <title>Title</title>
-</head>
-<body>
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
 
 <f:view>
     <h:head>
@@ -18,6 +16,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="stylesheet" href="../styles/main.css"/>
+        <script type="text/javascript" src="../scripts/main.js"></script>
     </h:head>
     <h:body>
         <div id="header">
@@ -27,65 +26,149 @@
             <button onclick="location.href = '../index.xhtml'" id="toIndex">Go back</button>
         </div>
         <div id="content">
+
             <div id="leftSide">
+
+                <div id="pictureBox">
+                    <h:outputText id="picture" escape='false'
+                                  value='#{shotsSession.printShots()}'/>
+                </div>
+
+                <h:form id="textForm">
+                    X[-5;5]:
+                    <h:inputText id="text_input_X" onblur="setX()" value="#{shotsSession.x}">
+                        <f:convertNumber type="number" integerOnly="true"/>
+                        <f:validateDoubleRange minimum="-5.0" maximum="5.0"/>
+
+                    </h:inputText>
+                </h:form>
+
                 <h:form>
-                    <div id="picture">
-                        #{storage.printShots(session.getId(), shotsSession.r)}
-                    </div>
-
-                    <div id="xText">
-                        X[-5;5]:
-                        <h:inputText id="text_input_X" value="#{shotsSession.x}">
-                            <f:convertNumber/>
-                            <f:validateDoubleRange minimum="-5.0" maximum="5.0"/>
-                        </h:inputText>
-                    </div>
-
                     <div id="yButtons">
                         Y:
-                        <h:commandButton id="yCom-3" value="-3" action="#{shotsSession.setY(-3)}"/>
-                        <h:commandButton id="yCom-2" value="-2" action="#{shotsSession.setY(-2)}"/>
-                        <h:commandButton id="yCom-1" value="-1" action="#{shotsSession.setY(-1)}"/>
-                        <h:commandButton id="yCom0" value="0" action="#{shotsSession.setY(0)}"/>
-                        <h:commandButton id="yCom1" value="1" action="#{shotsSession.setY(1)}"/>
-                        <h:commandButton id="yCom2" value="2" action="#{shotsSession.setY(2)}"/>
-                        <h:commandButton id="yCom3" value="3" action="#{shotsSession.setY(3)}"/>
-                        <h:commandButton id="yCom4" value="4" action="#{shotsSession.setY(4)}"/>
-                        <h:commandButton id="yCom5" value="5" action="#{shotsSession.setY(5)}"/>
+                        <h:commandButton type="button" id="yCom-3" value="-3" onclick="setY(-3)"/>
+                        <h:commandButton type="button" id="yCom-2" value="-2" onclick="setY(-2)"/>
+                        <h:commandButton type="button" id="yCom-1" value="-1" onclick="setY(-1)"/>
+                        <h:commandButton type="button" id="yCom0" value="0" onclick="setY(0)"/>
+                        <h:commandButton type="button" id="yCom1" value="1" onclick="setY(1)"/>
+                        <h:commandButton type="button" id="yCom2" value="2" onclick="setY(2)"/>
+                        <h:commandButton type="button" id="yCom3" value="3" onclick="setY(3)"/>
+                        <h:commandButton type="button" id="yCom4" value="4" onclick="setY(4)"/>
+                        <h:commandButton type="button" id="yCom5" value="5" onclick="setY(5)"/>
                     </div>
+                </h:form>
+
+                <h:form id="rForm">
 
                     <div id="rButtons">
                         R:
-                        <h:commandButton id="rCom1" onclick="setR(1)" value="1" action="#{shotsSession.setR(1)}"/>
-                        <h:commandButton id="rCom15" onclick="setR(1.5)" value="1.5" action="#{shotsSession.setR(1.5)}"/>
-                        <h:commandButton id="rCom2" onclick="setR(2)"  value="2" action="#{shotsSession.setR(2)}"/>
-                        <h:commandButton id="rCom25" onclick="setR(2.5)"  value="2.5" action="#{shotsSession.setR(2.5)}"/>
-                        <h:commandButton id="rCom3" onclick="setR(3)"  value="3" action="#{shotsSession.setR(3)}"/>
+                        <h:commandButton onclick="setR(1)" value="1">
+                            <f:ajax listener="#{shotsSession.setR(1)}" render="picture" resetValues="true"/>
+                        </h:commandButton>
+                        <h:commandButton onclick="setR(1.5)" value="1.5">
+                            <f:ajax listener="#{shotsSession.setR(1.5)}" render="picture" resetValues="true"/>
+                        </h:commandButton>
+                        <h:commandButton onclick="setR(2)" value="2">
+                            <f:ajax listener="#{shotsSession.setR(2)}" render="picture" resetValues="true"/>
+                        </h:commandButton>
+                        <h:commandButton onclick="setR(2.5)" value="2.5">
+                            <f:ajax listener="#{shotsSession.setR(2.5)}" render="picture" resetValues="true"/>
+                        </h:commandButton>
+                        <h:commandButton onclick="setR(3)" value="3">
+                            <f:ajax listener="#{shotsSession.setR(3)}" render="picture" resetValues="true"/>
+                        </h:commandButton>
                     </div>
 
+                </h:form>
+
+                <h:form id="mainForm">
+
+                    <h:inputHidden id="dataX" value="#{shotsSession.x}"/>
+                    <h:inputHidden id="dataY" value="#{shotsSession.y}"/>
+
                     <div id="sender">
-                        <h:commandButton value="Send" action="#{shotsSession.addShot(session.getId())}"/>
+                        <h:commandButton id="sendButton" type="submit" value="Send">
+                            <f:ajax execute="dataX dataY"
+                                    listener="#{shotsSession.addShot(session.getId())}"
+                                    render="mainTable picture"/>
+                        </h:commandButton>
                     </div>
 
                 </h:form>
             </div>
+
             <div id="rightSide">
-                <div id="table">
-                    #{storage.writeShots(session.getId())}
+                <div id="tableBox">
+                    <h:dataTable id="mainTable" value="#{shotsSession.getShotsViewList()}"
+                                 var="shot" headerClass="stickyTh"
+                                 columnClasses="x-class,y-class,r-class,som-class,stt-class,sct-class"
+                    >
+
+                        <h:column>
+                            <f:facet name="header">X</f:facet>
+                            #{shot.x}
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">Y</f:facet>
+                            #{shot.y}
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">R</f:facet>
+                            #{shot.r}
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">Y/N</f:facet>
+                            #{shot.GR}
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">Start time</f:facet>
+                            #{shot.start}
+                        </h:column>
+
+                        <h:column>
+                            <f:facet name="header">Script time</f:facet>
+                            #{shot.scriptTime}
+                        </h:column>
+
+                    </h:dataTable>
                 </div>
+
+                <div id="navigationBar">
+                    <h:form styleClass="leftForm">
+
+                        <h:commandButton value="First">
+                            <f:ajax event="click" listener="#{shotsSession.selectFirstPage()}" resetValues="true" render="centerForm:text_input_list_number mainTable"/>
+                        </h:commandButton>
+                        <h:commandButton value="Prev">
+                            <f:ajax event="click" listener="#{shotsSession.selectPrevPage()}" resetValues="true" render="centerForm:text_input_list_number mainTable"/>
+                        </h:commandButton>
+                    </h:form>
+                    <h:form id="centerForm" styleClass="centerForm">
+                        <h:inputText id="text_input_list_number" value="#{shotsSession.listNumber}">
+                            <f:validateLongRange minimum="1" maximum="10000"/>
+                            <f:convertNumber/>
+                            <f:ajax execute="text_input_list_number" render="mainTable"
+                                    resetValues="true"/>
+                        </h:inputText>
+                    </h:form>
+                    <h:form styleClass="rightForm">
+                        <h:commandButton value="Next">
+                            <f:ajax event="click" listener="#{shotsSession.selectNextPage()}" resetValues="true" render="centerForm:text_input_list_number mainTable"/>
+                        </h:commandButton>
+                        <h:commandButton value="Last">
+                            <f:ajax event="click" listener="#{shotsSession.selectLastPage()}" resetValues="true" render="centerForm:text_input_list_number mainTable"/>
+                        </h:commandButton>
+                    </h:form>
+                </div>
+
             </div>
         </div>
-        <h:form id="hiddenForm" style="display: none;">
-            <h:inputHidden id="dataX" value="#{shotsSession.x}" />
-            <h:inputHidden id="dataY" value="#{shotsSession.y}" />
-            <h:inputHidden id="dataR" value="#{shotsSession.r}" />
-            <h:commandButton id="invisibleClickTarget">
-                <f:ajax execute="@form" listener="#{shotsSession.addShot(session.getId())}" render=""/>
-            </h:commandButton>
-        </h:form>
+
+
     </h:body>
 </f:view>
-<script type="text/javascript" src="../scripts/main.js"/>
-
-</body>
 </html>

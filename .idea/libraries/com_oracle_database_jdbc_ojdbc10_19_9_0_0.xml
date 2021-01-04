@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="com.oracle.database.jdbc:ojdbc10:19.9.0.0" type="repository">
+    <properties maven-id="com.oracle.database.jdbc:ojdbc10:19.9.0.0" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/ojdbc10-19.9.0.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

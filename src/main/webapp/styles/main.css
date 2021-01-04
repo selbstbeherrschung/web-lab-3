@@ -73,6 +73,73 @@ body {
 #rightSide{
     width:50%;
     float: right;
+    min-height: 500px;
+}
+
+#mainTable{
+    border: 1px solid black;
+    min-width: 480px;
+    max-height: 400px;
+}
+
+#tableBox{
+    min-height: 400px;
+}
+
+#navigationBar{
+    text-align: left;
+
+}
+
+.leftForm{
+    display: inline;
+    width: 40%;
+}
+
+.rightForm{
+    display: inline;
+    width: 40%;
+}
+
+.centerForm{
+    display: inline;
+    width: 20%;
+}
+
+.x-class {
+    border: 1px solid black;
+    max-height: 20px;
+    width: 5%;
+}
+
+.y-class {
+    border: 1px solid black;
+    max-height: 20px;
+    width: 5%;
+}
+
+.r-class {
+    border: 1px solid black;
+    max-height: 20px;
+    width: 5%;
+}
+
+.som-class {
+    border: 1px solid black;
+    max-height: 20px;
+    width: 8%;
+}
+
+.stt-class {
+    border: 1px solid black;
+    max-height: 20px;
+    width: 40%;
+}
+
+.sct-class {
+    border: 1px solid black;
+    max-height: 20px;
+    width: 20%;
 }
 
 
